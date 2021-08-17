@@ -60,8 +60,13 @@ const notification = async (text) => {
     if (TG_ID && TG_TOKEN) {
         await fetch(`https://api.telegram.org/bot${TG_TOKEN}/sendMessage?chat_id=${TG_ID}&text=${encodeURIComponent(text)}`)
     }
-    console.log(text)
+    console.log('notification: ', text)
 }
 
 
-checkin(notification).then(() => process.exit());
+checkin(notification)
+.then(() => process.exit())
+.catch(e => {
+    console.error(e.message)
+    process.exit(1)
+});
