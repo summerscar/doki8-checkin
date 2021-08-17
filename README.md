@@ -13,9 +13,9 @@
 ## 使用
 
 1. Fork 仓库
-2. Settings-secrets 添加上方所需 secret
-3. Actions- enable Github actions
+2. Settings - secrets 添加上方所需 secret
+3. Actions - enable Github actions
 4. 运行
-    * Actions- doki8-checkin -run workflow 可手动运行 Actions
+    * Actions - doki8-checkin - run workflow 可手动运行 Actions
     * 早上8点自动执行
-5. 推送自动结果至微信、Telegram
+5. 自动推送结果至微信、Telegram
