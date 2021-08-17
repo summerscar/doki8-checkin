@@ -1,0 +1,28 @@
+name: doki8-checkin
+
+on:
+  workflow_dispatch:
+    inputs:
+      description:
+        description: 'Manual triggers'
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  schedule:
+    - cron:  0 0 * * *  # 早上 8 点
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      EMAIL: ${{ secrets.COROS_EMAIL }}
+      PASSWORD: ${{ secrets.COROS_PASSWORD }}
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Checkin
+      run: |
+        yarn
+        node index.js
