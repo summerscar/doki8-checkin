@@ -30,18 +30,18 @@ const checkin = async callback => {
 
         const loginResponse = await fetch("http://www.doki8.com/", {
             "headers": {
-              "accept": "*/*",
-              "accept-language": "ja-JP,ja;q=0.9,zh-CN;q=0.8,zh;q=0.7,en-US;q=0.6,en;q=0.5",
-              "cache-control": "no-cache",
-              "pragma": "no-cache",
-              "cookie": cookies
+                "accept": "*/*",
+                "accept-language": "ja-JP,ja;q=0.9,zh-CN;q=0.8,zh;q=0.7,en-US;q=0.6,en;q=0.5",
+                "cache-control": "no-cache",
+                "pragma": "no-cache",
+                "cookie": cookies
             },
             "referrer": "http://www.doki8.com/",
             "referrerPolicy": "strict-origin-when-cross-origin",
             "body": null,
             "method": "GET",
             "mode": "cors"
-          });
+        });
 
         const text = await loginResponse.text()
         const ponits = text.match(/积分: (\d+) 心动豆/)[0]
@@ -65,8 +65,8 @@ const notification = async (text) => {
 
 
 checkin(notification)
-.then(() => process.exit())
-.catch(e => {
-    console.error(e.message)
-    process.exit(1)
-});
+    .then(() => process.exit())
+    .catch(e => {
+        console.error(e.message)
+        process.exit(1)
+    });
