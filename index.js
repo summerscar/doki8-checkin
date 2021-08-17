@@ -10,7 +10,7 @@ const TG_ID = process.env.TG_ID
 const checkin = async callback => {
 
     try {
-        if (!username || !password) throw Error('username or pwd not found')
+        if (!username || !password) throw Error('username or password not found')
 
         const response = await fetch("http://www.doki8.com/wp-login.php", {
             "headers": {
@@ -30,17 +30,10 @@ const checkin = async callback => {
 
         const loginResponse = await fetch("http://www.doki8.com/", {
             "headers": {
-                "accept": "*/*",
-                "accept-language": "ja-JP,ja;q=0.9,zh-CN;q=0.8,zh;q=0.7,en-US;q=0.6,en;q=0.5",
-                "cache-control": "no-cache",
-                "pragma": "no-cache",
                 "cookie": cookies
             },
             "referrer": "http://www.doki8.com/",
-            "referrerPolicy": "strict-origin-when-cross-origin",
-            "body": null,
-            "method": "GET",
-            "mode": "cors"
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.131 Safari/537.36"
         });
 
         const text = await loginResponse.text()
@@ -53,7 +46,7 @@ const checkin = async callback => {
     }
 };
 
-const notification = async (text) => {
+const notification = async text => {
     if (SCKEY) {
         await fetch(`https://sc.ftqq.com/${SCKEY}.send?text=${encodeURIComponent(text)}`)
     }
