@@ -13,11 +13,14 @@ on:
     - cron:  0 0 * * *  # 早上 8 点
 
 jobs:
-  build:
+  checkin:
     runs-on: ubuntu-latest
     env:
-      EMAIL: ${{ secrets.COROS_EMAIL }}
-      PASSWORD: ${{ secrets.COROS_PASSWORD }}
+      USERNAME: ${{ secrets.USERNAME }}
+      PASSWORD: ${{ secrets.PASSWORD }}
+      SCKEY: ${{ secrets.SCKEY }}
+      TG_TOKEN: ${{ secrets.TG_TOKEN }}
+      TG_ID: ${{ secrets.TG_ID }}
 
     steps:
     - uses: actions/checkout@v2
