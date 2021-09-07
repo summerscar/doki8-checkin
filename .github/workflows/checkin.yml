@@ -6,7 +6,7 @@ on:
       description:
         description: 'Manual triggers'
   schedule:
-    - cron:  0 0 * * *  # 早上 8 点
+    - cron:  0 0 * * *
 
 jobs:
   checkin:
