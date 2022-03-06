@@ -37,6 +37,7 @@ const checkin = async callback => {
         });
 
         const text = await loginResponse.text()
+        console.log(text)
         const ponits = text.match(/积分: (\d+) 心动豆/)[0]
 
         callback && await callback(name + ' 签到成功 ' + ponits)
